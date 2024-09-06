@@ -347,6 +347,7 @@ fn process_diff(diffmap: &HashMap<String, String>) -> Result<HashMap<String, Vec
 					let delidx = delsplit[0].parse::<i32>().unwrap();
 					let deldiff = delsplit[1].parse::<i32>().unwrap();
 					deletionstr = format!("{delidx},{}", delidx+deldiff);
+					generate_diff().await;
 				}
 				else {
 					let delidx = deletionstr.parse::<i32>().unwrap();
