@@ -119,6 +119,7 @@ fn process_blamelines(blamelines: &Vec<&str>, linenum: usize) -> HashMap<usize, 
 			}
 			if idx < wordvec.len() {
 				timestamp = wordvec[idx];
+				process_diff().await;
 			}
 		}
 		linemap.insert(
