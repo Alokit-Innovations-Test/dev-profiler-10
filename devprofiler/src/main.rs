@@ -129,9 +129,8 @@ fn main() {
 			match dockermode {
 				true => {
 					let einfo = &mut RuntimeInfo::new();
-					unfinished_tasks(args.provider.as_ref().expect("Provider exists, checked"), args.repo_slug.as_ref().expect("No repo_slug"), einfo);
 					let writer_mut: &mut OutputWriter = &mut writer;
-					let einfo = &mut RuntimeInfo::new();
+					unfinished_tasks(args.provider.as_ref().expect("Provider exists, checked"), args.repo_slug.as_ref().expect("No repo_slug"), einfo);
 					let scan_pathbuf = match args.path {
 						Some(scan_pathbuf) => scan_pathbuf,
 						None => Path::new("/").to_path_buf()
