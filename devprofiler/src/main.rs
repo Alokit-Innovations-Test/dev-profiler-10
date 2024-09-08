@@ -45,6 +45,7 @@ fn process_repos(user_paths: Vec::<String>, einfo: &mut RuntimeInfo, writer: &mu
 		print!("Scanning [{count}/{num_user_path}] \r");
 		let _res = io::stdout().flush();
 		let ranalyzer_res = RepoAnalyzer::new(p.as_str().as_ref(), &repo_slug, &provider);
+		count -= 1;
 		match ranalyzer_res {
 			Ok(ranalyzer) => {
 				valid_repo += 1;
