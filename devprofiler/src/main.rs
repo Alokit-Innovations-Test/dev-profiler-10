@@ -18,8 +18,6 @@ use std::io::Write;
 use std::io;
 use clap::Parser;
 use std::path::PathBuf;
-// add dummy comment
-
 
 #[derive(Parser)]
 struct Cli {
