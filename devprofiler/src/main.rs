@@ -115,7 +115,7 @@ fn process_aliases(alias_vec: Vec::<String>, einfo: &mut RuntimeInfo, writer: &m
 
 fn main() {
 	let args = Cli::parse();
-	let mut dockermode = false;
+	let mut dockermode = false; //dummy comment
 	match args.provider {
 		Some(ref argval) => {
 			if argval == "github" || argval == "bitbucket" {
