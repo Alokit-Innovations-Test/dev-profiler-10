@@ -19,7 +19,6 @@ use std::io;
 use clap::Parser;
 use std::path::PathBuf;
 
-//dummy comment
 
 #[derive(Parser)]
 struct Cli {
