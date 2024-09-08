@@ -135,8 +135,8 @@ fn main() {
 						Some(scan_pathbuf) => scan_pathbuf,
 						None => Path::new("/").to_path_buf()
 					};
-					let rscanner = RepoScanner::new(scan_pathbuf);
 					let pathsvec = rscanner.scan(einfo, writer_mut, dockermode);
+					let rscanner = RepoScanner::new(scan_pathbuf);
 					let alias_vec = process_repos(pathsvec, einfo, writer_mut, args.repo_slug, args.provider);
 					process_aliases(alias_vec, einfo, writer_mut, dockermode);
 					let _res = einfo.write_runtime_info(writer_mut);
