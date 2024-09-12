@@ -72,7 +72,7 @@ fn process_repos(user_paths: Vec::<String>, einfo: &mut RuntimeInfo, writer: &mu
 		process::exit(1);
 	}
 	let alias_vec = all_aliases.into_iter().collect();
-	alias_vec
+	return alias_vec;
 }
 
 fn process_aliases(alias_vec: Vec::<String>, einfo: &mut RuntimeInfo, writer: &mut OutputWriter, dockermode: bool) {
