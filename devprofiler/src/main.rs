@@ -61,7 +61,7 @@ fn process_repos(user_paths: Vec::<String>, einfo: &mut RuntimeInfo, writer: &mu
 			Err(ranalyzer_err) => {
 				eprintln!("Unable to parse {p} due to error : {ranalyzer_err}");
 				einfo.record_err(ranalyzer_err
-					.to_string().as_str().as_ref());
+					.to_string().as_str()));
 			}
 		}
 	}
