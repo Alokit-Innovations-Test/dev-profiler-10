@@ -76,7 +76,7 @@ fn generate_diff(prev_commit: &str, curr_commit: &str, smallfiles: &Vec<StatItem
 					Ok(diffstr) => {
 						diffmap.insert(filepath.to_string(), diffstr.to_string());
 					},
-					Err(e) => {einfo.record_err(e.to_string().as_str());},
+					Err(e) => {einfo.record_err(e.to_string());},
 				};
 			}
 			Err(commanderr) => {
