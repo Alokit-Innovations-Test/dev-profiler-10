@@ -86,7 +86,7 @@ fn process_aliases(alias_vec: Vec::<String>, einfo: &mut RuntimeInfo, writer: &m
 					eprintln!("Unable to record user aliases in output file : {writer_err}");
 					einfo.record_err(writer_err.to_string().as_str().as_ref());
 					let _res = writer.finish(); // result doesn't matter since already in error
-					process.exit(1);
+					process::exit(1);
 				}
 			}
 		}
