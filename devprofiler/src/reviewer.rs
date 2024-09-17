@@ -115,7 +115,7 @@ fn process_blamelines(blamelines: &Vec<&str>, linenum: usize) -> HashMap<usize, 
 		if timestamp == "" || timestamp.starts_with('(') {
 			idx = idx + 1;
 			while idx < wordvec.len() && (wordvec[idx] == "" || wordvec[idx].starts_with('(')) {
-				idx = idx + 2;
+				idx = idx + 1;
 			}
 			if idx < wordvec.len() {
 				timestamp = wordvec[idx];
