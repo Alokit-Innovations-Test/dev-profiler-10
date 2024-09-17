@@ -68,7 +68,6 @@ fn process_repos(user_paths: Vec::<String>, einfo: &mut RuntimeInfo, writer: &mu
 		let err_line = "Unable to parse any provided repo(s)";
 		eprintln!("{err_line}");
 		einfo.record_err(err_line);
-		process::exit(1);
 	}
 	let alias_vec = all_aliases.into_iter().collect();
 	alias_vec
