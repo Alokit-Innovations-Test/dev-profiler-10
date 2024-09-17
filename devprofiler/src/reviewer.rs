@@ -143,7 +143,7 @@ fn generate_blame(commit: &str, linemap: &HashMap<String, Vec<String>>, einfo: &
 				"--date=unix",
 				path.as_str());
 			let linenumvec: Vec<&str> = line.split(",").collect();
-			let linenum = linenumvec[1];
+			let linenum = linenumvec[0];
 			match Command::new("git").args(paramvec).output() {
 				Ok(resultblame) => {
 					let blame = resultblame.stdout;
