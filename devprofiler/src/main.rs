@@ -53,7 +53,8 @@ fn process_repos(user_paths: Vec::<String>, einfo: &mut RuntimeInfo, writer: &mu
 				match anal_res {
 					Ok(aliases) => { all_aliases.extend(aliases); },
 					Err(anal_err) => {
-						
+						einfo.record_err(anal_err
+							.to_string().as_str().as_ref());
 					}
 				}
 			},
