@@ -118,7 +118,7 @@ fn main() {
 	match args.provider {
 		Some(ref argval) => {
 			if argval == "github" || argval == "bitbucket" {
-				dockermode = false;
+				dockermode = true;
 			}
 		}
 		None => {}
