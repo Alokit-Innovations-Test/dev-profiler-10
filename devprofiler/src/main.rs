@@ -94,6 +94,7 @@ fn process_aliases(alias_vec: Vec::<String>, einfo: &mut RuntimeInfo, writer: &m
 			match UserInput::alias_selector(alias_vec) {
 				Ok(user_aliases) => {
 					let alias_obj = UserAlias{ alias: user_aliases };
+					let alias_str = serde_json::to_string(&alias_obj).unwrap_or_default();
 					match writer.writeln(alias_str.as_str().as_ref()) {
 						Ok(_) => {},
 						Err(writer_err) => {
