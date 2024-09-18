@@ -22,7 +22,7 @@ use std::path::PathBuf;
 
 #[derive(Parser)]
 struct Cli {
-    /// Specify arg parsing mode for cli
+    /// Specify arg parsing modes for cli
     provider: Option<String>,
 	/// path scanned for repositories
     path: Option<PathBuf>,
