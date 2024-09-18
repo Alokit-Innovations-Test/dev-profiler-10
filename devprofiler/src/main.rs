@@ -40,7 +40,7 @@ fn process_repos(user_paths: Vec::<String>, einfo: &mut RuntimeInfo, writer: &mu
 	let mut all_aliases = HashSet::<String>::new();
 	let num_user_path = user_paths.len();
 	let mut count = 0;
-	// TODO - optimize count and iterating of vector user_path, get index in for loop
+	// TODO - optimize count and iterating of vector user_path, get index in for loops
 	for p in user_paths {
 		count += 1;
 		print!("Scanning [{count}/{num_user_path}] \r");
