@@ -26,7 +26,7 @@ struct Cli {
     provider: Option<String>,
 	/// path scanned for repositories
     path: Option<PathBuf>,
-	//// repository name and owner
+	//// repository name and owners
 	repo_slug: Option<String>,
 }
 
