@@ -105,7 +105,7 @@ fn process_aliases(alias_vec: Vec::<String>, einfo: &mut RuntimeInfo, writer: &m
 						}
 					}
 				}
-				Err(error) => {
+				Err(error) => { 
 					eprintln!("Unable to process user aliases : {:?}", error);
 					let _res = writer.finish(); // result doesn't matter since already in error
 					process::exit(1); 
