@@ -30,7 +30,6 @@ struct Cli {
 	repo_slug: Option<String>,
 }
 
-
 #[derive(Debug, Serialize, Default)]
 struct UserAlias {
 	alias: Vec::<String>
