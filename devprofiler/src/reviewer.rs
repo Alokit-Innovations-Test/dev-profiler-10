@@ -4,7 +4,6 @@ use std::process::Command;
 use std::str;
 use std::collections::HashMap;
 use sha256::digest;
-
 use crate::observer::RuntimeInfo;
 
 #[derive(Debug, Serialize, Default, Deserialize)]
