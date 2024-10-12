@@ -9,7 +9,6 @@ use crate::observer::RuntimeInfo;
 mod scanner;
 use crate::scanner::RepoScanner;
 mod reviewer;
-
 use crate::reviewer::unfinished_tasks;
 use std::process;
 use std::path::Path;
