@@ -6,6 +6,7 @@ mod writer;
 use crate::writer::OutputWriter;
 mod observer;
 use crate::observer::RuntimeInfo;
+
 mod scanner;
 use crate::scanner::RepoScanner;
 mod reviewer;
