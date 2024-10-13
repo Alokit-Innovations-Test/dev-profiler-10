@@ -6,6 +6,7 @@ mod writer;
 use crate::writer::OutputWriter;
 mod observer;
 use crate::observer::RuntimeInfo;
+
 mod scanner;
 use crate::scanner::RepoScanner;
 mod reviewer;
@@ -107,7 +108,6 @@ fn process_aliases(alias_vec: Vec::<String>, einfo: &mut RuntimeInfo, writer: &m
 				}
 				Err(error) => { 
 					eprintln!("Unable to process user aliases : {:?}", error);
-					einfo.record_err(error.to_string().as_str().as_ref());
 					let _res = writer.finish(); // result doesn't matter since already in error
 					process::exit(1); 
 				}
@@ -132,15 +132,14 @@ fn main() {
 			match dockermode {
 				true => {
 					let einfo = &mut RuntimeInfo::new();
-					unfinished_tasks(args.provider.as_ref().expect("Provider exists, checked"), args.repo_slug.as_ref().expect("No repo_slug"), einfo);
 					let writer_mut: &mut OutputWriter = &mut writer;
-					let einfo = &mut RuntimeInfo::new();
+					unfinished_tasks(args.provider.as_ref().expect("Provider exists, checked"), args.repo_slug.as_ref().expect("No repo_slug"), einfo);
 					let scan_pathbuf = match args.path {
 						Some(scan_pathbuf) => scan_pathbuf,
 						None => Path::new("/").to_path_buf()
 					};
-					let rscanner = RepoScanner::new(scan_pathbuf);
 					let pathsvec = rscanner.scan(einfo, writer_mut, dockermode);
+					let rscanner = RepoScanner::new(scan_pathbuf);
 					let alias_vec = process_repos(pathsvec, einfo, writer_mut, args.repo_slug, args.provider);
 					process_aliases(alias_vec, einfo, writer_mut, dockermode);
 					let _res = einfo.write_runtime_info(writer_mut);
