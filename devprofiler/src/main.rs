@@ -4,7 +4,6 @@ mod analyzer;
 use crate::analyzer::RepoAnalyzer;
 mod writer;
 use crate::writer::OutputWriter;
-
 mod observer;
 use crate::observer::RuntimeInfo;
 mod scanner;
