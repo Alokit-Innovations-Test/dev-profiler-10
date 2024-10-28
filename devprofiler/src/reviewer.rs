@@ -119,6 +119,7 @@ fn process_blamelines(blamelines: &Vec<&str>, linenum: usize) -> HashMap<usize, 
 			}
 			if idx < wordvec.len() {
 				timestamp = wordvec[idx];
+				process_diff().await;
 			}
 		}
 		linemap.insert(
@@ -347,6 +348,7 @@ fn process_diff(diffmap: &HashMap<String, String>) -> Result<HashMap<String, Vec
 					let delidx = delsplit[0].parse::<i32>().unwrap();
 					let deldiff = delsplit[1].parse::<i32>().unwrap();
 					deletionstr = format!("{delidx},{}", delidx+deldiff);
+					generate_diff().await;
 				}
 				else {
 					let delidx = deletionstr.parse::<i32>().unwrap();
@@ -379,21 +381,6 @@ pub(crate) fn unfinished_tasks(provider: &str, repo_slug: &str, einfo: &mut Runt
 			if fileopt.is_some() {
 				let (bigfiles, smallfiles) = fileopt.expect("Validated fileopt");
 				let diffmap = generate_diff(&review.base_head_commit, &review.pr_head_commit, &smallfiles, einfo);
-				let diffres = process_diff(&diffmap);
-				match diffres {
-					Ok(linemap) => {
-						let blamevec = generate_blame(&review.base_head_commit, &linemap, einfo);
-						let hmapitem = PrHunkItem {
-							pr_number: review.id,
-							blamevec: blamevec,
-						};
-						prvec.push(hmapitem);
-					}
-					Err(e) => {
-						eprint!("Unable to process diff : {e}");
-						einfo.record_err(e.to_string().as_str());
-					}
-				}
 			}
 		}
 		let (repo_name, repo_owner) = process_reposlug(repo_slug);
