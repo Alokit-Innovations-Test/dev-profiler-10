@@ -1,13 +1,6 @@
 [package]
 name = "devprofiler"
 version = "0.2.3"
-edition = "2021"
-authors = ["Tapish Rathore <tapish@vibinex.com>"]
-license = "GPL-3.0-or-later"
-description = "CLI tool for analysing code contribution to a repository"
-readme = "README.md"
-homepage = "https://github.com/Alokit-Innovations/dev-profiler"
-repository = "https://github.com/Alokit-Innovations/dev-profiler"
 keywords = ["cli", "tools", "git"]
 categories = ["command-line-utilities"]
 
